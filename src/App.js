@@ -12,6 +12,7 @@ class App extends Component {
 			{ name: 'Lechuga', price: 300, img: '/products/lechuga.jpg' },
 		],
 		cart: [],
+		showCart: false,
 	}
 
 	addProductToCart = (product) => {
@@ -27,13 +28,22 @@ class App extends Component {
 		})
 	}
 
+	toggleCart = () => {
+		if (!this.state.cart.length) {
+			return
+		}
+
+		this.setState({ showCart: !this.state.showCart })
+	}
+
 	render() {
+		const { cart, products, showCart } = this.state
 		return (
 			<div>
-				<NavBar cart={this.state.cart} />
+				<NavBar cart={cart} showCart={showCart} toggleCart={this.toggleCart} />
 				<Layout>
 					<Title />
-					<Productos addToCart={this.addProductToCart} products={this.state.products} />
+					<Productos addToCart={this.addProductToCart} products={products} />
 				</Layout>
 			</div>
 		)
