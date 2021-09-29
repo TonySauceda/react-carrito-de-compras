@@ -1,5 +1,5 @@
 import { Component } from 'react'
-import Productos from './components/Productos'
+import Products from './components/Products'
 import Layout from './components/Layout'
 import Title from './components/Title'
 import NavBar from './components/NavBar'
@@ -43,7 +43,7 @@ class App extends Component {
 				<NavBar cart={cart} showCart={showCart} toggleCart={this.toggleCart} />
 				<Layout>
 					<Title />
-					<Productos addToCart={this.addProductToCart} products={products} />
+					<Products addToCart={this.addProductToCart} products={products} />
 				</Layout>
 			</div>
 		)

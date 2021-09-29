@@ -14,7 +14,7 @@ const styles = {
 	},
 }
 
-class Producto extends Component {
+class Product extends Component {
 	render() {
 		const { product, addToCart } = this.props
 		return (
@@ -28,4 +28,4 @@ class Producto extends Component {
 	}
 }
 
-export default Producto
+export default Product

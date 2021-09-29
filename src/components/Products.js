@@ -1,5 +1,5 @@
 import { Component } from 'react'
-import Producto from './Producto'
+import Product from './Product'
 
 const styles = {
 	products: {
@@ -8,18 +8,18 @@ const styles = {
 		justifyContent: 'space-between',
 	},
 }
-class Productos extends Component {
+class Products extends Component {
 	render() {
 		const { products, addToCart } = this.props
 
 		return (
 			<div style={styles.products}>
 				{products.map((product) => (
-					<Producto addToCart={addToCart} key={product.name} product={product} />
+					<Product addToCart={addToCart} key={product.name} product={product} />
 				))}
 			</div>
 		)
 	}
 }
 
-export default Productos
+export default Products
