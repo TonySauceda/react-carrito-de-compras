@@ -22,11 +22,21 @@ const styles = {
 		padding: '25px 20px',
 		borderBottom: 'solid 1px #aaa',
 	},
+	button: {
+		backgroundColor: 'transparent',
+		border: 'none',
+		color: 'red',
+		fontSize: '50px',
+		padding: 0,
+		margin: 0,
+		cursor: 'pointer',
+	},
 }
 
 class CartDetail extends Component {
 	render() {
-		const { cart } = this.props
+		const { cart, removeProductFromCart } = this.props
+
 		return (
 			<div style={styles.cartDetail}>
 				<ul style={styles.ul}>
@@ -34,6 +44,9 @@ class CartDetail extends Component {
 						<li style={styles.product} key={product.name}>
 							<img alt={product.name} src={product.img} width="50" height="32" />
 							{product.name} <span>{product.quantity}</span>
+							<button onClick={() => removeProductFromCart(product)} style={styles.button}>
+								-
+							</button>
 						</li>
 					))}
 				</ul>

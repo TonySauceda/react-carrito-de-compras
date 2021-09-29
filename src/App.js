@@ -28,6 +28,18 @@ class App extends Component {
 		})
 	}
 
+	removeProductFromCart = (product) => {
+		const { cart } = this.state
+
+		if (cart.find((x) => x.name === product.name)) {
+			const newCart = cart
+				.map((x) => (x.name === product.name ? { ...x, quantity: x.quantity - 1 } : x))
+				.filter((x) => x.quantity > 0)
+
+			return this.setState({ cart: newCart })
+		}
+	}
+
 	toggleCart = () => {
 		if (!this.state.cart.length) {
 			return
@@ -40,7 +52,12 @@ class App extends Component {
 		const { cart, products, showCart } = this.state
 		return (
 			<div>
-				<NavBar cart={cart} showCart={showCart} toggleCart={this.toggleCart} />
+				<NavBar
+					cart={cart}
+					showCart={showCart}
+					toggleCart={this.toggleCart}
+					removeProductFromCart={this.removeProductFromCart}
+				/>
 				<Layout>
 					<Title />
 					<Products addToCart={this.addProductToCart} products={products} />

@@ -21,7 +21,7 @@ const styles = {
 
 class Cart extends Component {
 	render() {
-		const { cart, showCart, toggleCart } = this.props
+		const { cart, showCart, toggleCart, removeProductFromCart } = this.props
 		const quantity = cart.reduce((acc, el) => acc + el.quantity, 0)
 
 		return (
@@ -30,7 +30,7 @@ class Cart extends Component {
 				<Button onClick={toggleCart} style={styles.button}>
 					Carrito
 				</Button>
-				{showCart ? <CartDetail cart={cart} /> : null}
+				{showCart ? <CartDetail cart={cart} removeProductFromCart={removeProductFromCart} /> : null}
 			</div>
 		)
 	}
